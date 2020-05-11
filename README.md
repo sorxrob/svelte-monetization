@@ -33,11 +33,11 @@ $ npm install svelte-web-monetization
   let wmRef;
 
   onMount(() => {
-    console.log(wmRef.start);
-    // {
-    //  state: document.monetization && document.monetization.state,
-    //  paymentPointer: YOUR-PAYMENT-POINTER,
-    //  requestId: String
+	console.log(wmRef.start);
+	// {
+	// 	state: document.monetization && document.monetization.state,
+	// 	paymentPointer: YOUR-PAYMENT-POINTER,
+	// 	requestId: String
 	// }
 
 	console.log(wmRef.progress)
