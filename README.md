@@ -22,6 +22,10 @@ $ npm install svelte-web-monetization
 </WebMonetization>
 ```
 
+## To-Do
+
+- [ ] Tests
+
 ## License
 
 This plugin is released under the [MIT License](LICENSE.md).
