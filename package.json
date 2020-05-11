@@ -8,9 +8,7 @@
   "scripts": {
     "build": "rollup -c",
     "prepublishOnly": "npm run build",
-    "test": "jest",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "del-cli docs && build-storybook -c .storybook -o docs"
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
