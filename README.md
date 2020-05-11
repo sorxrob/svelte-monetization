@@ -10,6 +10,8 @@ $ npm install svelte-web-monetization
 
 ## Usage
 
+### Add Web Monetization to your Svelte project
+
 ```svelte
 <script>
   import WebMonetization from "svelte-web-monetization";
@@ -20,6 +22,34 @@ $ npm install svelte-web-monetization
   <div slot="monetized">Monetized content here</div>
   <div slot="not-monetized">Show ads here</div>
 </WebMonetization>
+```
+
+### Get Web Monetization Status and Progress
+
+```svelte
+<script>
+  import { onMount } from 'svelte';
+  import WebMonetization from "svelte-web-monetization";
+  let wmRef;
+
+  onMount(() => {
+    console.log(wmRef.start);
+    // {
+    //  state: document.monetization && document.monetization.state,
+    //  paymentPointer: YOUR-PAYMENT-POINTER,
+    //  requestId: String
+	// }
+
+	console.log(wmRef.progress)
+	// {
+	// 	assetCode: String,
+	// 	assetScale: Number,
+	// 	totalAmount: Number
+	// }
+  });
+</script>
+
+<WebMonetization bind:this={wmRef}></WebMonetization>
 ```
 
 ## To-Do
