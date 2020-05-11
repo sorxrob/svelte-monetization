@@ -28,7 +28,8 @@
     "svelte-loader": "^2.13.6"
   },
   "keywords": [
-    "svelte"
+    "svelte",
+    "web monetization"
   ],
   "files": [
     "src",
