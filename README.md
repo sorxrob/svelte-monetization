@@ -61,6 +61,7 @@ $ npm install svelte-web-monetization
 ## To-Do
 
 - [ ] Tests
+- [ ] Example app
 
 ## License
 
