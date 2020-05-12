@@ -1,6 +1,6 @@
 {
-  "name": "svelte-web-monetization",
-  "description": "Web Monetization API plugin implemented for use with Svelte.",
+  "name": "svelte-monetization",
+  "description": "A minimal and lightweight wrapper for the Web Monetization API",
   "version": "0.0.1",
   "svelte": "src/index.js",
   "module": "dist/index.mjs",
