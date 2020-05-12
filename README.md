@@ -10,7 +10,7 @@ $ npm install --save svelte-monetization
 
 ## Usage
 
-### Add Web Monetization to your Svelte project
+### Add Svelte Monetization to your project
 
 ```svelte
 <script>
