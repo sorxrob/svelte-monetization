@@ -24,32 +24,27 @@ $ npm install svelte-web-monetization
 </WebMonetization>
 ```
 
-### Get Web Monetization Status and Progress
+### Events
+
+You can also listen to [Web Monetization browser events](https://webmonetization.org/docs/api#browser-events) via Component events.
 
 ```svelte
 <script>
-  import { onMount } from 'svelte';
   import WebMonetization from "svelte-web-monetization";
-  let wmRef;
 
-  onMount(() => {
-	console.log(wmRef.start);
-	// {
-	// 	state: document.monetization && document.monetization.state,
-	// 	paymentPointer: YOUR-PAYMENT-POINTER,
-	// 	requestId: String
-	// }
-
-	console.log(wmRef.progress)
-	// {
-	// 	assetCode: String,
-	// 	assetScale: Number,
-	// 	totalAmount: Number
-	// }
-  });
+  function handleStart(event) {}
+  function handleStop(event) {}
+  function handlePending(event) {}
+  function handleProgress(event) {}
 </script>
 
-<WebMonetization bind:this={wmRef}></WebMonetization>
+<WebMonetization
+  on:progress={handleProgress}
+  on:start={handleStart}
+  on:stop={handleStop}
+  on:pending={handlePending}>
+  <!-- Rest of the code here -->
+</WebMonetization>
 ```
 
 ## Use case examples
