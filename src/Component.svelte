@@ -1,9 +1,9 @@
 <script>
   import { onMount, createEventDispatcher } from "svelte";
+  const dispatch = createEventDispatcher();
+
   export let isLoading = true;
   export let isMonetized = false;
-
-  const dispatch = createEventDispatcher();
 
   onMount(() => {
     if (!document.monetization) {

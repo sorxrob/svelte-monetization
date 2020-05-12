@@ -52,7 +52,6 @@ You can also listen to [Web Monetization browser events](https://webmonetization
 - Hide existing ads when Web Monetization is enabled
 - Content that can be viewed only when Web Monetization is enabled
 - Total amount of payment stored for each user in database etc, utilized for premium content
--
 
 ## To-Do
 
