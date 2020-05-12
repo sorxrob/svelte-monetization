@@ -1,6 +1,6 @@
 # svelte-monetization
 
-> Web Monetization API plugin implemented for use with Svelte.
+> A minimal and lightweight wrapper for the Web Monetization API.
 
 ## Installation
 
