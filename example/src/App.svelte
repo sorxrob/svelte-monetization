@@ -1,30 +1,75 @@
 <script>
-	export let name;
+  import { onMount } from "svelte";
+  import Nav from "./components/Nav.svelte";
+  import Footer from "./components/Footer.svelte";
+  import Advertisement from "./components/Advertisement.svelte";
+  import SvelteMonetization from "svelte-monetization";
+  import watermark from "watermarkjs";
+  const imageUrl = "https://i.imgur.com/tMxofag.png";
+  let src = imageUrl;
+
+  const addWatermark = async () => {
+    const text = watermark.text.center(
+      "I'm a watermark",
+      "38px serif",
+      "#fff",
+      0.5
+    );
+    const options = {
+      init(img) {
+        img.crossOrigin = "anonymous";
+      }
+    };
+    const img = await watermark([imageUrl], options).image(text);
+    src = img.src;
+  };
+
+  onMount(() => {
+    addWatermark();
+  });
 </script>
 
+<!-- Nav -->
+<Nav />
+<!-- Main -->
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+  <div class="container">
+    <div class="section">
+      <h4>Lorem ipsum dolor sit amet, consectetur adipisicing</h4>
+      <p>Oct 1, 2020 · 11 min read</p>
+      <div style="text-align: center;">
+        <img {src} alt="banner" class="responsive-img" />
+      </div>
+      <SvelteMonetization on:start={() => (src = imageUrl)}>
+        <div slot="loading">Loading...</div>
+        <div slot="not-monetized">
+          {#each [...Array(2).keys()] as item}
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
+              eveniet accusantium voluptate ex, dignissimos fuga assumenda
+              quidem! Voluptatum, illo! Architecto sed ullam doloremque
+              voluptatum tenetur ipsam maiores accusamus, necessitatibus
+              voluptates laudantium facilis corrupti ut saepe praesentium,
+              obcaecati odio nulla expedita.
+            </p>
+          {/each}
+          <Advertisement />
+        </div>
+        <div slot="monetized">
+          {#each [...Array(10).keys()] as item}
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
+              eveniet accusantium voluptate ex, dignissimos fuga assumenda
+              quidem! Voluptatum, illo! Architecto sed ullam doloremque
+              voluptatum tenetur ipsam maiores accusamus, necessitatibus
+              voluptates laudantium facilis corrupti ut saepe praesentium,
+              obcaecati odio nulla expedita.
+            </p>
+          {/each}
+        </div>
+      </SvelteMonetization>
+    </div>
+  </div>
 </main>
-
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
-</style>
+<!-- Footer -->
+<Footer />
