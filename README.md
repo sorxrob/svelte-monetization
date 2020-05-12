@@ -5,7 +5,7 @@
 ## Installation
 
 ```bash
-$ npm install svelte-web-monetization
+$ npm install --save svelte-monetization
 ```
 
 ## Usage
@@ -14,14 +14,14 @@ $ npm install svelte-web-monetization
 
 ```svelte
 <script>
-  import WebMonetization from "svelte-web-monetization";
+  import SvelteMonetization from "svelte-monetization";
 </script>
 
-<WebMonetization>
+<SvelteMonetization>
   <div slot="loading">Loading message here</div>
   <div slot="monetized">Monetized content here</div>
   <div slot="not-monetized">Show ads here</div>
-</WebMonetization>
+</SvelteMonetization>
 ```
 
 ### Events
@@ -30,7 +30,7 @@ You can also listen to [Web Monetization browser events](https://webmonetization
 
 ```svelte
 <script>
-  import WebMonetization from "svelte-web-monetization";
+  import SvelteMonetization from "svelte-monetization";
 
   function handleStart(event) {}
   function handleStop(event) {}
@@ -38,13 +38,13 @@ You can also listen to [Web Monetization browser events](https://webmonetization
   function handleProgress(event) {}
 </script>
 
-<WebMonetization
+<SvelteMonetization
   on:progress={handleProgress}
   on:start={handleStart}
   on:stop={handleStop}
   on:pending={handlePending}>
-  <!-- Rest of the code here -->
-</WebMonetization>
+  <!-- Rest of your code -->
+</SvelteMonetization>
 ```
 
 ## Use case examples

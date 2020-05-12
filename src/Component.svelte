@@ -19,23 +19,16 @@
       isMonetized = false;
     }
 
-    document.monetization.addEventListener("monetizationstart", event => {
-      dispatch("start", event.detail);
+    const events = ["start", "progress", "pending", "stop"];
+    events.forEach(name => {
+      document.monetization.addEventListener("monetization" + name, event => {
+        dispatch(name, event.detail);
 
-      isLoading = false;
-      isMonetized = true;
-    });
-
-    document.monetization.addEventListener("monetizationprogress", event => {
-      dispatch("progress", event.detail);
-    });
-
-    document.monetization.addEventListener("monetizationpending", event => {
-      dispatch("pending", event.detail);
-    });
-
-    document.monetization.addEventListener("monetizationstop", event => {
-      dispatch("stop", event.detail);
+        if (name === "start") {
+          isLoading = false;
+          isMonetized = true;
+        }
+      });
     });
   });
 </script>
