@@ -40,7 +40,6 @@
   });
 </script>
 
-<svelte:options accessors />
 {#if isLoading}
   <slot name="loading">
     <span>Your loading content here.</span>
