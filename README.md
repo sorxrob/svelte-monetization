@@ -15,37 +15,52 @@ $ npm install --save svelte-monetization
 ```svelte
 <script>
   import SvelteMonetization from "svelte-monetization";
+
+  function handleProgress(event) {
+    console.log(event.detail);
+  }
 </script>
 
-<SvelteMonetization>
+<SvelteMonetization on:progress={handleProgress}>
   <div slot="loading">Loading message here</div>
   <div slot="monetized">Monetized content here</div>
   <div slot="not-monetized">Show ads here</div>
 </SvelteMonetization>
 ```
 
+### Slots
+
+- `loading`
+
+  This should contain your loading message or element.
+
+- `monetized`
+
+  A place to put your monetized/premium content.
+
+- `not-monetized`
+
+  A place to put your ads.
+
 ### Events
 
 You can also listen to [Web Monetization browser events](https://webmonetization.org/docs/api#browser-events) via Component events.
 
-```svelte
-<script>
-  import SvelteMonetization from "svelte-monetization";
+- `start`
 
-  function handleStart(event) {}
-  function handleStop(event) {}
-  function handlePending(event) {}
-  function handleProgress(event) {}
-</script>
+  Fires when Web Monetization has started actively paying.
 
-<SvelteMonetization
-  on:progress={handleProgress}
-  on:start={handleStart}
-  on:stop={handleStop}
-  on:pending={handlePending}>
-  <!-- Rest of your code -->
-</SvelteMonetization>
-```
+- `progress`
+
+  Fires when a payment comes in.
+
+- `stop`
+
+  Used to determine when Web Monetization has stopped.
+
+- `pending`
+
+  Used to determine when Web Monetization is enabled
 
 ## Use case examples
 
