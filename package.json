@@ -1,7 +1,7 @@
 {
   "name": "svelte-monetization",
   "description": "A minimal and lightweight wrapper for the Web Monetization API",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "svelte": "src/index.js",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
@@ -36,5 +36,9 @@
     "dist"
   ],
   "dependencies": {},
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sorxrob/svelte-monetization.git"
+  }
 }
