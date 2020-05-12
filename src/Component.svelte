@@ -34,15 +34,9 @@
 </script>
 
 {#if isLoading}
-  <slot name="loading">
-    <span>Your loading content here.</span>
-  </slot>
+  <slot name="loading" />
 {:else if isMonetized}
-  <slot name="monetized">
-    <span>Monetized content here.</span>
-  </slot>
+  <slot name="monetized" />
 {:else}
-  <slot name="not-monetized">
-    <span>Your ads here.</span>
-  </slot>
+  <slot name="not-monetized" />
 {/if}
