@@ -1,17 +1,9 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, createEventDispatcher } from "svelte";
   export let isLoading = true;
   export let isMonetized = false;
-  export let start = {
-    state: document.monetization && document.monetization.state,
-    paymentPointer: null,
-    requestId: null
-  };
-  export let progress = {
-    assetCode: null,
-    assetScale: null,
-    totalAmount: 0
-  };
+
+  const dispatch = createEventDispatcher();
 
   onMount(() => {
     if (!document.monetization) {
@@ -28,29 +20,22 @@
     }
 
     document.monetization.addEventListener("monetizationstart", event => {
-      const { paymentPointer, requestId } = event.detail;
-      const newMonetizationStart = {
-        state: document.monetization.state,
-        paymentPointer,
-        requestId
-      };
-      start = Object.assign({}, newMonetizationStart);
+      dispatch("start", event.detail);
 
       isLoading = false;
       isMonetized = true;
     });
 
     document.monetization.addEventListener("monetizationprogress", event => {
-      const { amount, assetCode, assetScale } = event.detail;
-      const totalAmount = (+amount * Math.pow(10, -assetScale)).toFixed(
-        assetScale
-      );
-      const newMonetizationProgress = {
-        assetCode,
-        assetScale,
-        totalAmount
-      };
-      progress = Object.assign({}, newMonetizationProgress);
+      dispatch("progress", event.detail);
+    });
+
+    document.monetization.addEventListener("monetizationpending", event => {
+      dispatch("pending", event.detail);
+    });
+
+    document.monetization.addEventListener("monetizationstop", event => {
+      dispatch("stop", event.detail);
     });
   });
 </script>
