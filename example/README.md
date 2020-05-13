@@ -6,6 +6,15 @@ This is a project example that uses `svelte-monetization` plugin. It lives at ht
 
 1. Change the payment pointer inside `App.svelte` to your payment pointer.
 
+   ```html
+   <svelte:head>
+     <meta
+       name="monetization"
+       content="$coil.xrptipbot.com/701298d5-481d-40ff-9945-336671ab2c42"
+     />
+   </svelte:head>
+   ```
+
 2. Install the dependencies
 
    ```bash
