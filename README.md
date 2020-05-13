@@ -2,6 +2,14 @@
 
 > A minimal and lightweight wrapper for the Web Monetization API.
 
+## Sample Project
+
+```bash
+$ cd example
+$ npm install
+$ npm run dev
+```
+
 ## Installation
 
 ```bash
