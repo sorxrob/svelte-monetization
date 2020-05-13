@@ -21,26 +21,16 @@ $ npm install --save svelte-monetization
   }
 </script>
 
-<SvelteMonetization on:progress={handleProgress}>
-  <div slot="loading">Loading message here</div>
-  <div slot="monetized">Monetized content here</div>
-  <div slot="not-monetized">Show ads here</div>
+<SvelteMonetization let:isMonetized let:isLoading on:progress={handleProgress}>
+  {#if isLoading}
+    <div>Loading message here</div>
+    {:else if isMonetized}
+  <div>Monetized/premium content here</div>
+    {:else}
+  <div>Show ads here</div>
+  {/if}
 </SvelteMonetization>
 ```
-
-### Slots
-
-- `loading`
-
-  This should contain your loading message or element.
-
-- `monetized`
-
-  A place to put your monetized/premium content.
-
-- `not-monetized`
-
-  A place to put your ads.
 
 ### Events
 
@@ -71,7 +61,7 @@ You can also listen to [Web Monetization browser events](https://webmonetization
 ## To-Do
 
 - [ ] Tests
-- [ ] Example app
+- [x] Example app
 
 ## License
 
