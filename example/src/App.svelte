@@ -40,33 +40,40 @@
       <div style="text-align: center;">
         <img {src} alt="banner" class="responsive-img" />
       </div>
-      <SvelteMonetization on:start={() => (src = imageUrl)}>
-        <div slot="loading">Loading...</div>
-        <div slot="not-monetized">
-          {#each [...Array(2).keys()] as item}
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-              eveniet accusantium voluptate ex, dignissimos fuga assumenda
-              quidem! Voluptatum, illo! Architecto sed ullam doloremque
-              voluptatum tenetur ipsam maiores accusamus, necessitatibus
-              voluptates laudantium facilis corrupti ut saepe praesentium,
-              obcaecati odio nulla expedita.
-            </p>
-          {/each}
-          <Advertisement />
-        </div>
-        <div slot="monetized">
-          {#each [...Array(10).keys()] as item}
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-              eveniet accusantium voluptate ex, dignissimos fuga assumenda
-              quidem! Voluptatum, illo! Architecto sed ullam doloremque
-              voluptatum tenetur ipsam maiores accusamus, necessitatibus
-              voluptates laudantium facilis corrupti ut saepe praesentium,
-              obcaecati odio nulla expedita.
-            </p>
-          {/each}
-        </div>
+      <SvelteMonetization
+        let:isMonetized
+        let:isLoading
+        on:start={() => (src = imageUrl)}>
+        {#if isLoading}
+          <div>Loading...</div>
+        {:else if isMonetized}
+          <div>
+            {#each [...Array(10).keys()] as item}
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
+                eveniet accusantium voluptate ex, dignissimos fuga assumenda
+                quidem! Voluptatum, illo! Architecto sed ullam doloremque
+                voluptatum tenetur ipsam maiores accusamus, necessitatibus
+                voluptates laudantium facilis corrupti ut saepe praesentium,
+                obcaecati odio nulla expedita.
+              </p>
+            {/each}
+          </div>
+        {:else}
+          <div>
+            {#each [...Array(2).keys()] as item}
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
+                eveniet accusantium voluptate ex, dignissimos fuga assumenda
+                quidem! Voluptatum, illo! Architecto sed ullam doloremque
+                voluptatum tenetur ipsam maiores accusamus, necessitatibus
+                voluptates laudantium facilis corrupti ut saepe praesentium,
+                obcaecati odio nulla expedita.
+              </p>
+            {/each}
+            <Advertisement />
+          </div>
+        {/if}
       </SvelteMonetization>
     </div>
   </div>
