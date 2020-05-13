@@ -2,6 +2,10 @@
 
 > A minimal and lightweight wrapper for the Web Monetization API.
 
+![GitHub](https://img.shields.io/github/license/sorxrob/svelte-monetization)
+![GitHub repo version](https://img.shields.io/npm/v/svelte-monetization)
+![GitHub last commit](https://img.shields.io/github/last-commit/sorxrob/svelte-monetization)
+
 ## Sample Project
 
 ```bash
