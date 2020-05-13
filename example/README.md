@@ -4,7 +4,7 @@ This is a project example that uses `svelte-monetization` plugin. It lives at ht
 
 ## Get started
 
-1. Change the payment pointer inside `public/index.html` to your payment pointer.
+1. Change the payment pointer inside `App.svelte` to your payment pointer.
 
 2. Install the dependencies
 
