@@ -21,7 +21,10 @@ $ npm install --save svelte-monetization
   }
 </script>
 
-<SvelteMonetization let:isMonetized let:isLoading on:progress={handleProgress}>
+<SvelteMonetization
+  let:isMonetized
+  let:isLoading
+  on:progress={handleProgress}>
   {#if isLoading}
     <div>Loading message here</div>
   {:else if isMonetized}
