@@ -33,6 +33,13 @@ $ npm install --save svelte-monetization
   }
 </script>
 
+<!-- Set up your payment pointer in your App.svelte -->
+<svelte:head>
+  <meta
+    name="monetization"
+    content="$coil.xrptipbot.com/701298d5-481d-40ff-9945-336671ab2c42" />
+</svelte:head>
+
 <SvelteMonetization
   let:isMonetized
   let:isLoading
