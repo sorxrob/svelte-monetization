@@ -4,28 +4,12 @@
   import Footer from "./components/Footer.svelte";
   import Advertisement from "./components/Advertisement.svelte";
   import SvelteMonetization from "svelte-monetization";
-  import watermark from "watermarkjs";
+  import { addWatermark } from "./utils";
   const imageUrl = "https://i.imgur.com/tMxofag.png";
   let src = imageUrl;
 
-  const addWatermark = async () => {
-    const text = watermark.text.center(
-      "I'm a watermark",
-      "38px serif",
-      "#fff",
-      0.5
-    );
-    const options = {
-      init(img) {
-        img.crossOrigin = "anonymous";
-      }
-    };
-    const img = await watermark([imageUrl], options).image(text);
-    src = img.src;
-  };
-
-  onMount(() => {
-    addWatermark();
+  onMount(async () => {
+    src = await addWatermark(imageUrl);
   });
 </script>
 
